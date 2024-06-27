@@ -72,34 +72,34 @@ export const Navbar = () => {
               </DropdownTrigger>
             </NavbarItem>
             <DropdownMenu
-              aria-label="ACME features"
+              aria-label="Electronic"
               className="w-[340px]"
               itemClasses={{
                 base: "gap-4",
               }}
             >
               <DropdownItem
-                key="Latest Product"
-                description="ACME scales apps to meet user demand, automagically, based on load."
+                key="Smartphones"
+                description="Explore our latest collection of Smartphones with cutting-edge technology."
               >
-                Latest Product
+                Smartphones
               </DropdownItem>
               <DropdownItem
-                key="Trendy"
-                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+                key="PC/Laptop"
+                description="Find high-performance PCs and Laptops for all your computing needs."
               >
-                Trendy
+                PC/Laptop
               </DropdownItem>
               <DropdownItem
-                key="production_ready"
-                description="ACME runs on ACME, join us and others serving requests at web scale."
+                key="Smartwatch"
+                description="Discover the newest Smartwatches with advanced features and stylish designs."
               >
-                Production Ready
+                Smartwatch
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <NavbarItem>
-            <Link href="#" className="text-white ">
+            <Link href="/about" className="text-white ">
               About
             </Link>
           </NavbarItem>
