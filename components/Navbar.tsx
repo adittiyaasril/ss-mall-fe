@@ -10,6 +10,7 @@ import {
   NavbarMenuItem,
   Link,
   Input,
+  Image,
   DropdownItem,
   DropdownTrigger,
   Dropdown,
@@ -44,9 +45,7 @@ export const Navbar = () => {
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <Link href="#" aria-current="page">
-            <div className={fontSatisfy.className}>
-              <p className="text-xl text-white font-bold">SS Mall</p>
-            </div>
+            <Image width={176} height={24} src={"/CeltTrade.svg"} alt="Logo" />
           </Link>
         </NavbarBrand>
       </NavbarContent>

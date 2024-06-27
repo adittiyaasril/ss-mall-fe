@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "SS Mall",
+  title: "CeltTrade || Electronic Mall",
   description: "Our platform pulsates with the latest Product",
 };
 
