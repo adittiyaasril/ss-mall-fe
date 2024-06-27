@@ -11,7 +11,7 @@ import {
   Skeleton,
 } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 interface Product {
   id: number;
   image: string;
@@ -65,6 +65,7 @@ export default function HomePage() {
                 size="sm"
                 className="absolute bottom-2 right-2 z-10"
               >
+                <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
                 Add to Cart
               </Button>
             </CardBody>
