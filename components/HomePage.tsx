@@ -1,6 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../lib/store";
+import { fetchProducts } from "../lib/features/products/productsSlice";
 import {
   Card,
   CardBody,
@@ -13,35 +16,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-interface Product {
-  id: number;
-  image: string;
-  name: string;
-  category: string;
-  price: number;
-  stock: number;
-}
+const getRandomRating = (): number => {
+  return parseFloat((Math.random() * 0.3 + 4.7).toFixed(1));
+};
 
-export default function HomePage() {
-  const [list, setList] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+const HomePage: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { list, loading } = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    axios
-      .get<Product[]>("https://soal3-be.vercel.app/products")
-      .then((response) => {
-        setList(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the data!", error);
-        setLoading(false);
-      });
-  }, []);
-
-  const getRandomRating = (): number => {
-    return parseFloat((Math.random() * 0.3 + 4.7).toFixed(1));
-  };
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className="p-8 gap-8 grid grid-cols-2 sm:grid-cols-6">
@@ -56,7 +41,8 @@ export default function HomePage() {
               </CardFooter>
             </Card>
           ))
-        : list.map((item) => {
+        : // Show products when loading is done
+          list.map((item) => {
             const discountPrice = Math.round(item.price * 1.1);
             const rating = getRandomRating();
 
@@ -85,7 +71,7 @@ export default function HomePage() {
                     Add to Cart
                   </Button>
                 </CardBody>
-                <Link href={`/product/${item.id}`}>
+                <Link href={`product/${item.id}`}>
                   <CardFooter className="text-small justify-between h-[100px]">
                     <div>
                       <b>{item.name}</b>
@@ -104,4 +90,6 @@ export default function HomePage() {
           })}
     </div>
   );
-}
+};
+
+export default HomePage;

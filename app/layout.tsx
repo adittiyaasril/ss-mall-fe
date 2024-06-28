@@ -3,6 +3,7 @@ import { fontRoboto, fontSatisfy } from "@/config/fonts";
 import "../styles/globals.css";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar";
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   title: "CeltTrade || Electronic Mall",
@@ -17,12 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fontRoboto.className}>
-        <Providers>
-          <div className="h-screen">
-            <Navbar />
-            {children}
-          </div>
-        </Providers>
+        <StoreProvider>
+          <Providers>
+            <div className="h-screen">
+              <Navbar />
+              {children}
+            </div>
+          </Providers>
+        </StoreProvider>
       </body>
     </html>
   );
