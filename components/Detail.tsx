@@ -35,6 +35,9 @@ const Detail: React.FC = () => {
       </div>
     );
   }
+  if (!loading && !product) {
+    return <div className="p-8">Product not found</div>;
+  }
 
   return (
     <div className="p-8">
