@@ -44,7 +44,7 @@ export const Navbar = () => {
     >
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
-          <Link href="#" aria-current="page">
+          <Link href="/" aria-current="page">
             <Image width={176} height={24} src={"/CeltTrade.svg"} alt="Logo" />
           </Link>
         </NavbarBrand>

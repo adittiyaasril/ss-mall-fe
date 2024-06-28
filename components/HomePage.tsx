@@ -41,8 +41,7 @@ const HomePage: React.FC = () => {
               </CardFooter>
             </Card>
           ))
-        : // Show products when loading is done
-          list.map((item) => {
+        : list.map((item) => {
             const discountPrice = Math.round(item.price * 1.1);
             const rating = getRandomRating();
 
