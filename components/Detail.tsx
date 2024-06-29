@@ -60,7 +60,7 @@ const Detail: React.FC = () => {
   }
 
   return (
-    <div className="lg:p-8 md:p-3 ">
+    <div className="p-8">
       {product && (
         <div className="lg:container mx-auto lg:px-24 grid lg:grid-cols-2">
           <Image
@@ -98,7 +98,7 @@ const Detail: React.FC = () => {
             <p className="p-5 text-slate-500">
               <FontAwesomeIcon icon={faTruck} /> Free shipping
             </p>
-            <div className="px-5 flex space-x-4">
+            <div className="px-5 flex space-x-4 pb-10">
               <Button size="lg" color="primary" variant="bordered">
                 <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
                 Add To Cart
