@@ -60,7 +60,7 @@ const Detail: React.FC = () => {
   }
 
   return (
-    <div className="p-8">
+    <div className="lg:p-8 md:px-2 md:py-5">
       {product && (
         <div className="lg:container mx-auto lg:px-24 grid lg:grid-cols-2">
           <Image
@@ -70,7 +70,7 @@ const Detail: React.FC = () => {
             height={400}
             radius="lg"
             alt={product.name}
-            className="object-cover"
+            className="object-cover sm:w-fit"
             src={product.image}
           />
           <div>
