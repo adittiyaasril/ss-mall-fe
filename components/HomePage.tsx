@@ -15,7 +15,20 @@ import {
 } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { addItem } from "../lib/features/cart/cartSlice";
 
+// Define the Product interface
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  stock: number;
+}
+
+interface cartItem extends Product {
+  quantity: number;
+}
 const getRandomRating = (): number => {
   return parseFloat((Math.random() * 0.3 + 4.7).toFixed(1));
 };
@@ -27,6 +40,11 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  const handleAddToCart = (item: Product) => {
+    const itemWithQuantity: cartItem = { ...item, quantity: 1 };
+    dispatch(addItem(itemWithQuantity));
+  };
 
   return (
     <div className="p-8 gap-8 grid grid-cols-2 sm:grid-cols-6">
@@ -64,6 +82,7 @@ const HomePage: React.FC = () => {
                   <Button
                     color="primary"
                     size="sm"
+                    onClick={() => handleAddToCart(item)}
                     className="absolute bottom-2 right-2 z-10"
                   >
                     <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
